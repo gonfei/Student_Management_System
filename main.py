@@ -1,37 +1,31 @@
 # encoding:utf-8
-import fileOperation, showInfo, basicOperation
+# @作者: 2019014715孔光辉
+# @类型: 课程设计
+
+import basicOperation as bo
+import showInfo as show
+import fileOperation as fo
+
+# 系统功能字典
 func_dic = {
-    '1': basicOperation.addStu,
-    '2': basicOperation.showStu,
-    '3': basicOperation.updateStu,
-    '4': basicOperation.delStu,
-    '5': showInfo.score_ascend,
-    '6': showInfo.score_descend,
-    '7': showInfo.age_ascend,
-    '8': showInfo.age_descend,
-    '9': fileOperation.saveInfo,
-    '10': fileOperation.readFile,
-    '11': fileOperation.clearFile,
+    '0': bo.menu,
+    '1': bo.addStu,
+    '2': bo.showStu,
+    '3': bo.updateStu,
+    '4': bo.delStu,
+    '5': show.score_descend,
+    '6': show.score_ascend,
+    '7': show.age_descend,
+    '8': show.age_ascend,
+    '9': fo.saveInfo,
+    '10': fo.readFile,
+    '11': fo.clearFile,
 }
-
-print('=======欢迎来到学生管理系统======')
-print("1)\t添加学生信息。")
-print("2)\t显示所有学生信息。")
-print("3)\t修改学生信息。")
-print("4)\t删除学生信息。")
-print("5)\t按学生成绩高-低显示学生信息。")
-print("6)\t按学生成绩低-高显示学生信息。")
-print("7)\t按学生年龄高-低显示学生信息。")
-print("8)\t按学生年龄低-高显示学生信息。")
-print("9)\t保存学生信息到文件(student.txt)。")
-print("10)\t保存学生信息到文件(student.txt)。")
-print("11)\t清空学生信息文件(student.txt)。")
-print("\t退出: 按任意键退出。。。")
-
+bo.menu()  # 显示菜单
 while 1:
     value = input('请输入您要使用管理系统的功能(序号):')
     try:
         func_dic[value]()
-    except Exception:
-        print('管理系统己退出。')
+    except Exception as e:
+        print(f'{e}\n管理系统己退出。')
         break
